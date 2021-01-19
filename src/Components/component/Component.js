@@ -1,6 +1,8 @@
+import classes from './Component.module.css'
+
 const Component = (props)=>{
     return(
-        <>  { props.error === true ? <div>Please enter the city name</div>
+        <div className={classes.Response}>  { props.error === true ? <div>Please enter the city name</div>
             : props.responseObj === undefined ? <div></div> : 
                 props.responseObj.cod === 200 ?
                 <div>
@@ -11,7 +13,7 @@ const Component = (props)=>{
                 </div>
                 : <div>{props.responseObj.message}</div>
             }
-        </>
+        </div>
     );
 }
 
