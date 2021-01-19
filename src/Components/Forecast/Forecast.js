@@ -26,7 +26,7 @@ const Forecast = ()=>{
     }
     return(
         <div>
-            <form onSubmit={getForecast}>
+            <form onSubmit={getForecast} className={classes.Form}>
                 <input
                     id="city"
                     type="text"
@@ -36,7 +36,7 @@ const Forecast = ()=>{
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     />
-                <label>
+                <label className={classes.rad}>
                     <input
                         type="radio"
                         name="units"
@@ -47,7 +47,7 @@ const Forecast = ()=>{
                         />
                     Fahrenheit
                 </label>
-                <label>
+                <label className={classes.rad}>
                     <input
                         type="radio"
                         name="units"

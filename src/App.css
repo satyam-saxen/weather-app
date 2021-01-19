@@ -39,8 +39,7 @@
 }
 
 header {
-  background-color: #cccccc;
-  background-image: url("./weather-pic.jpg");
+  background-color: #010216;
 }
 
 main {
@@ -64,7 +63,7 @@ footer {
   text-decoration: underline;
 }
 
-#foot {
+#foot,#ft {
   color: #61dafb;
 }
 
