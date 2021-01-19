@@ -3,7 +3,7 @@ import classes from './Component.module.css';
 const Component = (props)=>{
     return(
         <div className={classes.Response}>  { props.error === true ? <div data-testid="miss-city">Please enter the city name</div>
-            : props.responseObj === undefined ? <div></div> : 
+            : props.responseObj === undefined ? <div data-testid="undefined-res"></div> : 
                 props.responseObj.cod === 200 ?
                 <div>
                     <h4>City {props.responseObj.name}</h4>
