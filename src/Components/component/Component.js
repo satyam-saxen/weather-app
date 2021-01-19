@@ -2,7 +2,7 @@ import classes from './Component.module.css';
 
 const Component = (props)=>{
     return(
-        <div className={classes.Response}>  { props.error === true ? <div>Please enter the city name</div>
+        <div className={classes.Response}>  { props.error === true ? <div data-testid="miss-city">Please enter the city name</div>
             : props.responseObj === undefined ? <div></div> : 
                 props.responseObj.cod === 200 ?
                 <div>
