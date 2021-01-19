@@ -45,7 +45,7 @@ header {
 main {
   flex-grow: 1;
   text-align: center;
-  padding: 25px;
+  padding: 55px;
   height: 350px;
   background-position: center;
   background-image: url("./weather-pic.jpg");
