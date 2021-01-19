@@ -5,7 +5,15 @@ import Forecast from './Components/Forecast/Forecast';
 function App() {
   return (
     <div className="App">
-      <Forecast />
+      <header>
+        <h1>My Weather</h1>
+      </header>
+      <main>
+        <Forecast />
+      </main>
+      <footer>
+        <h3 id="foot">It could be better</h3>
+      </footer>
     </div>
   );
 }
