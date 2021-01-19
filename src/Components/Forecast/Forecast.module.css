@@ -17,6 +17,10 @@
     font-size: small;
 }
 
+.rad {
+    color:#719ECE;
+}
+
 .Button {
     display: block;
     margin: 10px auto;
