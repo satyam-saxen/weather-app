@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import classes from './Forecast.module.css';
-import Component from './../component/Component';
+import Weather from '../component/WeatherInfo';
 const Forecast = ()=>{
     let [city,setCity] = useState('');
     let [units,setUnits] = useState('imperial');
@@ -40,7 +40,7 @@ const Forecast = ()=>{
     return(
         <div>
             <Form city={city} getForecast={getForecast} setCity={setCity} units={units} setUnits={setUnits}></Form>
-            <Component responseObj={responseObj} error={error} loading={loading}/>
+            <Weather responseObj={responseObj} error={error} loading={loading}/>
         </div>
     );
 }

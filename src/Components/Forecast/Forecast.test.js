@@ -14,7 +14,6 @@ describe("Forecast component",()=>{
         fireEvent.change(screen.getByPlaceholderText('Enter City'), {
         target: { value: 'Agra' },
         });
-        // expect(screen.getByPlaceholderText('Enter City')).toBe('Agra');
         // screen.debug();
     });
 
