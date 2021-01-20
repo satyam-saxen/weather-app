@@ -40,6 +40,7 @@ const Forecast = ()=>{
     return(
         <div>
             <form onSubmit={getForecast} className={classes.Form}>
+                <label >
                 <input
                     id="city"
                     type="text"
@@ -49,6 +50,8 @@ const Forecast = ()=>{
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     />
+                    City 
+                </label>
                 <label className={classes.rad}>
                     <input
                         type="radio"
@@ -60,23 +63,29 @@ const Forecast = ()=>{
                         />
                     Fahrenheit
                 </label>
-                <label className={classes.rad}>
-                    <input
-                        type="radio"
-                        name="units"
-                        checked={units === "metric"}
-                        className={classes.Radio}
-                        value="metric"
-                        onChange={(e) => setUnits(e.target.value)}
-                        />
-                    Celcius
-                </label>
-
+                <Celcius units={units} setUnits={setUnits}></Celcius>
                 <button className={classes.Button} type="submit">Get Weather</button>
 
             </form>
             <Component responseObj={responseObj} error={error} loading={loading}/>
         </div>
+    );
+}
+
+
+const Celcius = (props)=>{
+    return(
+        <label className={classes.rad}>
+            <input
+                type="radio"
+                name="units"
+                checked={props.units === "metric"}
+                className={classes.Radio}
+                value="metric"
+                onChange={(e) => props.setUnits(e.target.value)}
+                />
+            Celcius
+        </label>
     );
 }
 
