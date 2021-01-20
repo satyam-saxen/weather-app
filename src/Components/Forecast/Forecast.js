@@ -52,17 +52,7 @@ const Forecast = ()=>{
                     />
                     City 
                 </label>
-                <label className={classes.rad}>
-                    <input
-                        type="radio"
-                        name="units"
-                        checked={units === "imperial"}
-                        className={classes.Radio}
-                        value="imperial"
-                        onChange={(e) => setUnits(e.target.value)}
-                        />
-                    Fahrenheit
-                </label>
+                <Fahrenheit units={units} setUnits={setUnits}></Fahrenheit>
                 <Celcius units={units} setUnits={setUnits}></Celcius>
                 <button className={classes.Button} type="submit">Get Weather</button>
 
@@ -72,6 +62,21 @@ const Forecast = ()=>{
     );
 }
 
+const Fahrenheit = (props)=>{
+    return(
+        <label className={classes.rad}>
+            <input
+                type="radio"
+                name="units"
+                checked={props.units === "imperial"}
+                className={classes.Radio}
+                value="imperial"
+                onChange={(e) => props.setUnits(e.target.value)}
+                />
+            Fahrenheit
+        </label>
+    );
+}
 
 const Celcius = (props)=>{
     return(
