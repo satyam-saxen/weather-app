@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Component from './../Component';
-import { render,cleanup } from '@testing-library/react';
+import { render,cleanup , screen} from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 
 afterEach(cleanup);
@@ -33,12 +33,18 @@ describe('Component',()=>{
         "timezone":-28800,"id":5809844,"name":"Seattle","cod":200};
         const {getByTestId} = render(<Component error={false} responseObj={responseObj}></Component>);
         expect(getByTestId('status200')).toHaveTextContent("City Seattle");
+        expect(screen.getByText(/Temp/)).toHaveTextContent(Math.round(responseObj.main.temp));
+        expect(screen.getByText(/Pressure/)).toHaveTextContent(responseObj.main.pressure);
+        expect(screen.getByText(/Humidity/)).toHaveTextContent(responseObj.main.humidity);
+
     });
     
     
     it("checks for the response not to be 200",()=>{
-        const responseObj = {"cod":404,"message":"Not Found"};
+        const message = "Not Found";
+        const responseObj = {"cod":404,"message":message};
         const {getByTestId} = render(<Component error={false} responseObj={responseObj}></Component>);
-        expect(getByTestId('statusNot200')).toHaveTextContent("Not Found");
+        expect(getByTestId('statusNot200')).toHaveTextContent(responseObj.message);
+
     });
 });
