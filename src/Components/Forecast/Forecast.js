@@ -40,25 +40,30 @@ const Forecast = ()=>{
     return(
         <div>
             <form onSubmit={getForecast} className={classes.Form}>
-                <label >
-                <input
-                    id="city"
-                    type="text"
-                    placeholder="Enter City"
-                    className={classes.textInput}
-                    maxLength="50"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    />
-                    City 
-                </label>
+                <City city={city} setCity={setCity}></City>
                 <Fahrenheit units={units} setUnits={setUnits}></Fahrenheit>
                 <Celcius units={units} setUnits={setUnits}></Celcius>
                 <button className={classes.Button} type="submit">Get Weather</button>
-
             </form>
             <Component responseObj={responseObj} error={error} loading={loading}/>
         </div>
+    );
+}
+
+const City = (props)=>{
+    return(
+        <label >
+            <input
+                id="city"
+                type="text"
+                placeholder="Enter City"
+                className={classes.textInput}
+                maxLength="50"
+                value={props.city}
+                onChange={(e) => props.setCity(e.target.value)}
+                />
+                City 
+        </label>
     );
 }
 
